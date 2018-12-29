@@ -16,12 +16,18 @@ export function registerScreens() {
 
     const bottomTabs={
         id:'BottomTabsId',
+        animate:true,
         children: [{
             stack: {
                 children: [{
                     component: {
                         name: 'ScreenA',
                         options: {
+                            animation:{
+                                setRoot:{
+                                    enabled:false,
+                                }
+                            },
                             bottomTab: {
                                 text: '书包',
                                 badge:'12',
@@ -88,10 +94,26 @@ export function registerScreens() {
     Navigation.events().registerAppLaunchedListener(()=>{
         Navigation.setRoot({
             root:{
-                bottomTabs:bottomTabs
+                bottomTabs:bottomTabs,
+                component:{
+                    options:{
+                        animations:{
+                            setRoot:{
+                                enabled:true,
+                                alpha:{
+                                    from:0,
+                                    to:0,
+                                    duration:1000,
+
+                                }
+                            }
+                        }
+                    }
+                }
             }
         })
     })
+
     // Navigation.events().registerAppLaunchedListener(() => {
     //     Navigation.setRoot({
     //         root: {

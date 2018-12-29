@@ -11,12 +11,30 @@ export default class ScreenB extends BaseScreen {
    
     constructor(props){
         super(props)
+        Navigation.events().registerBottomTabSelectedListener(({selectedTabIndex})=>{
+            if(selectedTabIndex == 1){
+                Navigation.mergeOptions('ScreenB',{
+                    bottomTab:{
+                        // badge:this.num,
+                        icon: require('../imgs/yifu2_icon.png'),
+                    }
+                })
+            }
+            
+        })
         this.num = 0;
         this.state={
 
         }
     }
-    
+    // componentDidMount(){
+    //     Navigation.mergeOptions('ScreenB',{
+    //         bottomTab:{
+    //             // badge:this.num,
+    //             icon: require('../imgs/boluo_icon.png'),
+    //         }
+    //     })
+    // }
     render() {
         return (
             <TouchableOpacity
@@ -34,7 +52,8 @@ export default class ScreenB extends BaseScreen {
         this.num ++;
         Navigation.mergeOptions('ScreenB',{
             bottomTab:{
-                badge:this.num
+                badge:this.num,
+                // icon: require('../imgs/boluo_icon.png'),
             }
         })
         // Navigation.push(this.props.componentId, {
