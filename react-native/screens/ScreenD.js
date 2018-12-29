@@ -13,11 +13,11 @@ export default class ScreenC extends BaseScreen {
                 style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}
                 onPress={() => this.onPress()}
             >
-                <Text>this is ScreenC</Text>
+                <Text>this is ScreenD</Text>
             </TouchableOpacity>
         )
     }
     onPress() {
-        // Navigation.popToRoot(this.props.componentId)
+        Navigation.popToRoot(this.props.componentId)
     }
 }
