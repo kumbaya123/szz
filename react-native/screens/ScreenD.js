@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
 import BaseScreen from './BaseScreen';
-export default class ScreenC extends BaseScreen {
+export default class ScreenC extends Component {
     render() {
         return (
             <TouchableOpacity

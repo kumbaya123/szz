@@ -6,102 +6,63 @@ import {
     NativeModules
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
+import ScrollableTabView, { DefaultTabBar, ScrollableTabBar } from 'react-native-scrollable-tab-view';
+import { showModalToLogin } from './screens';
+import ScreenB from './screens/ScreenB';
+import ScreenC from './screens/ScreenC';
+import ScreenA from './screens/ScreenA';
+import ScreenD from './screens/ScreenD';
+
+
 export default class MainScreen extends Component {
 
+    componentWillMount() {
+        this.checkLoginState();
+
+    }
+    checkLoginState() {
+        storage.load('loginData')
+        .then(ret =>{
+            console.log('ret', ret);
+            if (ret.account != '' && ret.psw != '') {
+
+            } else {
+                showModalToLogin()
+            }
+        }).catch(err => {
+                console.log('err', err);
+                showModalToLogin()
+            })
+    }
+    
     render() {
         return (
-            <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-                <TouchableOpacity
-                    style={{ height: 50 }}
-                    onPress={() => this.onPress()}
-                >
-                    <Text>原生页面跳转</Text>
-                </TouchableOpacity>
+            <ScrollableTabView
+                style={{}}
+                tabBarPosition='bottom'
+                locked={true}
+                tabBarUnderlineStyle={{ backgroundColor: 'white' }}
+                tabBarActiveTextColor='#3399fe'
+                scrollWithoutAnimation={false}
+                initialPage={0} //初始化时被选中的Tab下标，默认是0                    
+                renderTabBar={() => <DefaultTabBar />}
+            >
+                <ScreenA tabLabel='Tab #1'>1</ScreenA>
+                <ScreenB tabLabel='Tab #2'>2</ScreenB>
+                <ScreenC tabLabel='Tab #3'>3</ScreenC>
+                <ScreenD tabLabel='Tab #4'>4</ScreenD>
+                {/* <Text tabLabel = 'Tab #5'>4</Text>
+                    <Text tabLabel = 'Tab #6'>4</Text>
+                    <Text tabLabel = 'Tab #7'>4</Text> */}
 
-                <TouchableOpacity
-                    style={{ height: 50 }}
-                    onPress={() => this.onPress1()}
-                >
-                    <Text>MainScreen</Text>
-                </TouchableOpacity>
-            </View>
+            </ScrollableTabView>
         )
     }
     onPress() {
-        // NativeModules.AndroidScreens.startActivityByClassName('com.rn_modules.AndroidWithJsScreen')
+        NativeModules.AndroidScreens.startActivityByClassName('com.rn_modules.AndroidWithJsScreen')
     }
     onPress1() {
-        // const bottomTabs = {
-        //     id: 'BottomTabsId',
-        //     children: [
-        //         {
-        //             component: {
-        //                 name: 'ScreenA',
-        //                 options: {
-        //                     bottomTab: {
-        //                         text: 'Tab 1',
-        //                         testID: 'FIRST_TAB_BAR_BUTTON'
-        //                     }
-        //                 }
-        //             }
-        //         },
-        //         {
-        //             component: {
-        //                 id: 'SecondScreenId',
-        //                 name: 'ScreenB',
-        //                 options: {
-        //                     bottomTab: {
-        //                         text: 'Tab 2',
-        //                         testID: 'FIRST_TAB_BAR_BUTTON'
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     ]
-        // }
-        // Navigation.mergeOptions('BottomTabsId',{
-        //     bottomTabs:{
-        //         currentTabId:1
-        //     }
-        // })
-        // Navigation.setRoot({
-        //     root: {
-        //       bottomTabs: {
-        //         children: [{
-        //           stack: {
-        //             children: [{
-        //               component: {
-        //                 name: 'ScreeenA',
-        //                 passProps: {
-        //                   text: 'This is tab 1'
-        //                 }
-        //               }
-        //             }],
-        //             options: {
-        //               bottomTab: {
-        //                 text: 'Tab 1',
-        //                 testID: 'FIRST_TAB_BAR_BUTTON'
-        //               }
-        //             }
-        //           }
-        //         },
-        //         {
-        //           component: {
-        //             name: 'ScreenB',
-        //             passProps: {
-        //               text: 'This is tab 2'
-        //             },
-        //             options: {
-        //               bottomTab: {
-        //                 text: 'Tab 2',
-        //                 testID: 'SECOND_TAB_BAR_BUTTON'
-        //               }
-        //             }
-        //           }
-        //         }]
-        //       }
-        //     }
-        //   });
+
         // Navigation.push(this.props.componentId, {
         //     component: {
         //         name: 'ScreenA',

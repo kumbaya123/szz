@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
 import BaseScreen from './BaseScreen';
-export default class ScreenB extends BaseScreen {
+export default class ScreenB extends Component {
    
     constructor(props){
         super(props)

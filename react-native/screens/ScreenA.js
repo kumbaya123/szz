@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import BaseScreen from './BaseScreen';
 import { Navigation } from 'react-native-navigation';
-export default class ScreenA extends BaseScreen {
+export default class ScreenA extends Component {
     render() {
         return (
             <View
@@ -15,15 +15,6 @@ export default class ScreenA extends BaseScreen {
                 // onPress={() => this.onPress()}
             >
                 <Text>this is ScreenA</Text>
-                {/* <Navigation.Element elementId = 'image1'>
-                    <Image source = {require('../imgs/boluo_icon.png')}/>
-                </Navigation.Element> */}
-
-                {/* <TouchableOpacity
-                    onPress={() => this.onPress()}
-                >
-                    <Text>图片跳转</Text>
-                </TouchableOpacity> */}
             </View>
         )
     }

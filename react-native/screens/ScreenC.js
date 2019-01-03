@@ -6,18 +6,20 @@ import {
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
 import BaseScreen from './BaseScreen';
-export default class ScreenC extends BaseScreen {
+import { showModalToLogin } from '../screens';
+export default class ScreenC extends Component {
     render() {
         return (
             <TouchableOpacity
                 style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}
                 onPress={() => this.onPress()}
             >
-                <Text>this is ScreenC</Text>
+                <Text>退出登录</Text>
             </TouchableOpacity>
         )
     }
     onPress() {
-        // Navigation.popToRoot(this.props.componentId)
+        storage.remove('loginData')
+        showModalToLogin()
     }
 }
