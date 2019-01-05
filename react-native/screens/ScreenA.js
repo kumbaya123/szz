@@ -3,18 +3,40 @@ import {
     View,
     Text,
     TouchableOpacity,
-    Image
+    Image,
+    Button
 } from 'react-native'
 import BaseScreen from './BaseScreen';
 import { Navigation } from 'react-native-navigation';
-export default class ScreenA extends Component {
+export default class ScreenA extends BaseScreen {
+    componentWillMount(){
+        Navigation.mergeOptions('ScreenA',{
+            bottomTab:{
+                // textColor:'rgb(77,77,255)',
+                selectedTextColor:'rgb(77,77,255)',
+            }
+        })
+    }
     render() {
         return (
             <View
                 style={{ justifyContent: 'center', alignItems: 'center', flex: 1, }}
                 // onPress={() => this.onPress()}
             >
-                <Text>this is ScreenA</Text>
+                <Text style={{marginBottom:100}}>this is ScreenA</Text>
+                <Button
+                    title={'showOverlay'}
+                    onPress={()=>Navigation.showOverlay({
+                        component: {
+                          name: 'ScreenD',
+                          options: {
+                            overlay: {
+                              interceptTouchOutside: true
+                            }
+                          }
+                        }
+                      })}
+                />
             </View>
         )
     }

@@ -9,6 +9,17 @@ export default class BaseScreen extends Component{
         //     console.log('componentId = '+componentId);
         //     console.log('componentName = '+componentName);
         // })
+        // Navigation.events().registerBottomTabSelectedListener(({selectedTabIndex})=>{
+        //     if(selectedTabIndex == 0){
+        //         Navigation.mergeOptions('ScreenA',{
+        //             bottomTab:{
+        //                 // badge:this.num,
+        //                 icon: require('../imgs/shubao2_icon.png'),
+        //             }
+        //         })
+        //     }
+            
+        // })
     }
     componentDidAppear(){
         console.log('componentDidAppear');
@@ -16,6 +27,7 @@ export default class BaseScreen extends Component{
     componentDidDisappear(){
         console.log('componentDidDisappear');
     }
+    
     // componentWillUnmount(){
     //     console.log('componentDidAppear');
     // }

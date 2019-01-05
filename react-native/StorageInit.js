@@ -64,5 +64,7 @@ var storage = {
 }
 export function StorageInit(){
     global.storage = storage
+    console.log();
+    
 }
 // module.exports = storage

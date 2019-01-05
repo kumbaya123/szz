@@ -3,8 +3,12 @@ import { registerScreens, setRootBottomTabsScreen, setRootScreen, setStorage } f
 import { StorageInit } from './react-native/StorageInit';
 
 registerScreens()
-// setRootBottomTabsScreen()
-setRootScreen()
+setRootBottomTabsScreen()
+// setRootScreen()
 
 StorageInit()
 
+global.content = {
+    title:'hhhhha',
+    id:'123qwe'
+}

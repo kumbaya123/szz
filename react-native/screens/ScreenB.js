@@ -7,21 +7,21 @@ import {
 } from 'react-native'
 import { Navigation } from 'react-native-navigation';
 import BaseScreen from './BaseScreen';
-export default class ScreenB extends Component {
+export default class ScreenB extends BaseScreen {
    
     constructor(props){
         super(props)
-        Navigation.events().registerBottomTabSelectedListener(({selectedTabIndex})=>{
-            if(selectedTabIndex == 1){
-                Navigation.mergeOptions('ScreenB',{
-                    bottomTab:{
-                        // badge:this.num,
-                        icon: require('../imgs/yifu2_icon.png'),
-                    }
-                })
-            }
+        // Navigation.events().registerBottomTabSelectedListener(({selectedTabIndex})=>{
+        //     if(selectedTabIndex == 1){
+        //         Navigation.mergeOptions('ScreenB',{
+        //             bottomTab:{
+        //                 // badge:this.num,
+        //                 icon: require('../imgs/yifu2_icon.png'),
+        //             }
+        //         })
+        //     }
             
-        })
+        // })
         this.num = 0;
         this.state={
 
@@ -41,7 +41,7 @@ export default class ScreenB extends Component {
                 style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}
             onPress={() => this.onPress()}
             >
-                <Text>this is ScreenB</Text>
+                <Text>{global.content.title}</Text>
                 {/* <Navigation.Element elementId='image2'>
                     <Image source={require('../imgs/xianrenzhang_icon.png')} />
                 </Navigation.Element> */}
