@@ -31,7 +31,7 @@ export default class ScreenA extends BaseScreen {
                           name: 'ScreenD',
                           options: {
                             overlay: {
-                              interceptTouchOutside: true
+                              interceptTouchOutside: false
                             }
                           }
                         }
